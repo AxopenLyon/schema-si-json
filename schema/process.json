@@ -1,0 +1,145 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axopenlyon.github.io/schema-si-json/schema/process.json",
+  "title": "Process",
+  "type": "array",
+  "additionalProperties": false,
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "name",
+      "description",
+      "steps"
+    ],
+    "properties": {
+      "name": {
+        "$id": "#root/items/name",
+        "title": "Name",
+        "type": "string",
+        "default": "",
+        "description": "Name of the process",
+        "examples": [
+          "Quittancement"
+        ],
+        "pattern": "^.*$"
+      },
+      "description": {
+        "$id": "#root/items/description",
+        "title": "Description",
+        "type": "string",
+        "description": "Description of the process",
+        "default": "",
+        "examples": [
+          "Opération de quittancement"
+        ],
+        "pattern": "^.*$"
+      },
+      "steps": {
+        "$id": "#root/items/steps",
+        "title": "Steps",
+        "type": "array",
+        "description": "Steps of the process",
+        "additionalProperties": false,
+        "default": [],
+        "items": {
+          "$id": "#root/items/steps/items",
+          "title": "Items",
+          "type": "object",
+          "required": [
+            "order",
+            "name",
+            "apps",
+            "services"
+          ],
+          "properties": {
+            "order": {
+              "$id": "#root/items/steps/items/order",
+              "title": "Order",
+              "type": "number",
+              "description": "Order of the step",
+              "examples": [
+                1,
+                2
+              ]
+            },
+            "name": {
+              "$id": "#root/items/steps/items/name",
+              "title": "Name",
+              "type": "string",
+              "default": "",
+              "description": "Name of the step",
+              "examples": [
+                "Définition des OTs"
+              ],
+              "pattern": "^.*$"
+            },
+            "apps": {
+              "$id": "#root/items/steps/apps",
+              "title": "Apps",
+              "type": "array",
+              "description": "Apps impacted by the step",
+              "additionalProperties": false,
+              "default": [],
+              "items": {
+                "$id": "#root/items/steps/apps/items",
+                "title": "Items",
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "code"
+                ],
+                "properties": {
+                  "code": {
+                    "$id": "#root/items/steps/apps/items/code",
+                    "title": "Code",
+                    "type": "string",
+                    "description": "Code of the app",
+                    "default": "",
+                    "examples": [
+                      "APP_CODE"
+                    ],
+                    "pattern": "^.*$"
+                  }
+                }
+              }
+            },
+            "services": {
+              "$id": "#root/items/steps/services",
+              "title": "Apps",
+              "type": "array",
+              "description": "Services that do the step",
+              "additionalProperties": false,
+              "default": [],
+              "items": {
+                "$id": "#root/items/steps/apps/services",
+                "title": "Items",
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "code"
+                ],
+                "properties": {
+                  "code": {
+                    "$id": "#root/items/steps/steps/items/code",
+                    "title": "Code",
+                    "type": "string",
+                    "description": "Code of the service",
+                    "default": "",
+                    "examples": [
+                      "APP_CODE"
+                    ],
+                    "pattern": "^.*$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

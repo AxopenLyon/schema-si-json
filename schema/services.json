@@ -1,0 +1,54 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axopenlyon.github.io/schema-si-json/schema/services.json",
+  "title": "Services",
+  "type": "array",
+  "additionalProperties": false,
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "code",
+      "name",
+      "description"
+    ],
+    "properties": {
+      "code": {
+        "$id": "#root/items/code",
+        "title": "Code",
+        "type": "string",
+        "description": "Code of the service",
+        "default": "",
+        "examples": [
+          "actuariat"
+        ],
+        "pattern": "^.*$"
+      },
+      "name": {
+        "$id": "#root/items/name",
+        "title": "Name",
+        "type": "string",
+        "default": "",
+        "description": "Name of the service",
+        "examples": [
+          "Actuariat"
+        ],
+        "pattern": "^.*$"
+      },
+      "description": {
+        "$id": "#root/items/description",
+        "title": "Description",
+        "type": "string",
+        "default": "",
+        "description": "Description of the service",
+        "examples": [
+          "Service des actuaires"
+        ],
+        "pattern": "^.*$"
+      }
+    }
+  }
+}

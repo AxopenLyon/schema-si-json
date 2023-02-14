@@ -1,0 +1,97 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axopenlyon.github.io/schema-si-json/schema/data.json",
+  "title": "Data",
+  "type": "array",
+  "description": "Data",
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "code",
+      "name",
+      "description",
+      "masterdata"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "code": {
+        "$id": "#root/items/code",
+        "title": "Code",
+        "type": "string",
+        "default": "",
+        "description": "Code of the data",
+        "examples": [
+          "contrat"
+        ],
+        "pattern": "^.*$"
+      },
+      "name": {
+        "$id": "#root/items/name",
+        "title": "Name",
+        "type": "string",
+        "default": "",
+        "description": "Name of the data",
+        "examples": [
+          "Contrat"
+        ],
+        "pattern": "^.*$"
+      },
+      "description": {
+        "$id": "#root/items/description",
+        "title": "Description",
+        "type": "string",
+        "default": "",
+        "description": "Data description",
+        "examples": [
+          "Contrat d'assurances"
+        ],
+        "pattern": "^.*$"
+      },
+      "masterdata": {
+        "$id": "#root/items/masterdata",
+        "title": "Masterdata",
+        "type": "array",
+        "default": [],
+        "description": "Attribut from the data",
+        "items": {
+          "$id": "#root/items/masterdata/items",
+          "title": "Items",
+          "type": "object",
+          "required": [
+            "name",
+            "description"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "$id": "#root/items/masterdata/items/name",
+              "title": "Name",
+              "type": "string",
+              "default": "",
+              "description": "Name of the attribut",
+              "examples": [
+                "Date début effet"
+              ],
+              "pattern": "^.*$"
+            },
+            "description": {
+              "$id": "#root/items/masterdata/items/description",
+              "title": "Description",
+              "type": "string",
+              "default": "",
+              "description": "Description of the attribut",
+              "examples": [
+                ""
+              ],
+              "pattern": "^.*$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

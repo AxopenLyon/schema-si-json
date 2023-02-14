@@ -1,0 +1,84 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axopenlyon.github.io/schema-si-json/schema/flux.json",
+  "title": "Flux",
+  "type": "array",
+  "additionalProperties": false,
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "source",
+      "destination",
+      "name",
+      "type",
+      "technology",
+      "orientation"
+    ],
+    "properties": {
+      "source": {
+        "$id": "#root/items/source",
+        "title": "Source",
+        "type": "string",
+        "default": "",
+        "description": "Application code in source of the flux",
+        "examples": [
+          "APP_SOURCE_CODE"
+        ],
+        "pattern": "^.*$"
+      },
+      "destination": {
+        "$id": "#root/items/destination",
+        "title": "Destination",
+        "type": "string",
+        "description": "Application code in destination of the flux",
+        "default": "",
+        "examples": [
+          "APP_DESTINATION_CODE"
+        ],
+        "pattern": "^.*$"
+      },
+      "name": {
+        "$id": "#root/items/name",
+        "title": "Name",
+        "type": "string",
+        "description": "Name of the flux",
+        "default": "",
+        "examples": [
+          "Flux contrat"
+        ],
+        "pattern": "^.*$"
+      },
+      "type": {
+        "$id": "#root/items/type",
+        "title": "Type",
+        "enum": [
+          "Synchrone",
+          "Asynchrone"
+        ]
+      },
+      "technology": {
+        "$id": "#root/items/technology",
+        "title": "Technology",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "ws"
+        ],
+        "pattern": "^.*$"
+      },
+      "orientation": {
+        "$id": "#root/items/orientation",
+        "title": "Orientation",
+        "enum": [
+          "uni",
+          "both"
+        ]
+      }
+    }
+  }
+
+}

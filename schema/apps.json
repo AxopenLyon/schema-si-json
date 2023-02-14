@@ -1,0 +1,142 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axopenlyon.github.io/schema-si-json/schema/apps.json",
+  "title": "Apps",
+  "type": "array",
+  "additionalProperties": false,
+  "default": [],
+  "description": "Apps",
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "info",
+      "hosting"
+    ],
+    "properties": {
+      "info": {
+        "$id": "#root/items/info",
+        "title": "Info",
+        "type": "object",
+        "description": "Informations of the app",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "name",
+          "description",
+          "data"
+        ],
+        "properties": {
+          "code": {
+            "$id": "#root/items/info/code",
+            "title": "Code",
+            "type": "string",
+            "default": "",
+            "description": "Code of the app",
+            "examples": [
+              "CODENAME"
+            ],
+            "pattern": "^.*$"
+          },
+          "name": {
+            "$id": "#root/items/info/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the app",
+            "examples": [
+              "APPNAME"
+            ],
+            "pattern": "^.*$"
+          },
+          "description": {
+            "$id": "#root/items/info/description",
+            "title": "Description",
+            "type": "string",
+            "default": "",
+            "description": "Description of the app",
+            "examples": [
+              "App that process all the billings"
+            ],
+            "pattern": "^.*$"
+          },
+          "critical": {
+            "$id": "#root/items/info/critical",
+            "title": "Critical",
+            "type": "boolean",
+            "default": false,
+            "description": "Is the app critical ?"
+          },
+          "internal": {
+            "$id": "#root/items/info/internal",
+            "title": "Internal",
+            "type": "boolean",
+            "description": "Is the app internal ?",
+            "default": false
+          },
+          "data": {
+            "$id": "#root/items/info/data",
+            "title": "Data",
+            "type": "array",
+            "additionalProperties": false,
+            "description": "Data used by the app",
+            "default": [],
+            "items": {
+              "$id": "#root/items/info/data/items",
+              "title": "Items",
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "$id": "#root/items/info/data/items/code",
+                  "title": "Code",
+                  "type": "string",
+                  "description": "Code of the data",
+                  "additionalProperties": false,
+                  "default": "",
+                  "examples": [
+                    "contrat"
+                  ],
+                  "pattern": "^.*$"
+                }
+              }
+            }
+          }
+        }
+      },
+      "hosting": {
+        "$id": "#root/items/hosting",
+        "title": "Hosting",
+        "type": "object",
+        "description": "Hosting informations",
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ],
+        "properties": {
+          "code": {
+            "$id": "#root/items/hosting/code",
+            "title": "Code",
+            "type": "string",
+            "default": "",
+            "description": "Code of the hosting",
+            "examples": [
+              ""
+            ],
+            "pattern": "^.*$"
+          },
+          "container": {
+            "$id": "#root/items/hosting/container",
+            "title": "Container",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}
