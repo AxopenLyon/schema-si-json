@@ -1,0 +1,587 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/si.json",
+  "title": "SI",
+  "type": "object",
+  "required": [
+    "data",
+    "apps",
+    "hosting",
+    "flux",
+    "services",
+    "process"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#root/data",
+      "title": "Data",
+      "type": "array",
+      "description": "Data",
+      "default": [],
+      "items": {
+        "$id": "#root/data/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "code",
+          "name",
+          "description",
+          "masterdata"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "$id": "#root/data/items/code",
+            "title": "Code",
+            "type": "string",
+            "default": "",
+            "description": "Code of the data",
+            "examples": [
+              "contrat"
+            ],
+            "pattern": "^.*$"
+          },
+          "name": {
+            "$id": "#root/data/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the data",
+            "examples": [
+              "Contrat"
+            ],
+            "pattern": "^.*$"
+          },
+          "description": {
+            "$id": "#root/data/items/description",
+            "title": "Description",
+            "type": "string",
+            "default": "",
+            "description": "Data description",
+            "examples": [
+              "Contrat d'assurances"
+            ],
+            "pattern": "^.*$"
+          },
+          "masterdata": {
+            "$id": "#root/data/items/masterdata",
+            "title": "Masterdata",
+            "type": "array",
+            "default": [],
+            "description": "Attribut from the data",
+            "items": {
+              "$id": "#root/data/items/masterdata/items",
+              "title": "Items",
+              "type": "object",
+              "required": [
+                "name",
+                "description"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "$id": "#root/data/items/masterdata/items/name",
+                  "title": "Name",
+                  "type": "string",
+                  "default": "",
+                  "description": "Name of the attribut",
+                  "examples": [
+                    "Date début effet"
+                  ],
+                  "pattern": "^.*$"
+                },
+                "description": {
+                  "$id": "#root/data/items/masterdata/items/description",
+                  "title": "Description",
+                  "type": "string",
+                  "default": "",
+                  "description": "Description of the attribut",
+                  "examples": [
+                    ""
+                  ],
+                  "pattern": "^.*$"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "apps": {
+      "$id": "#root/apps",
+      "title": "Apps",
+      "type": "array",
+      "additionalProperties": false,
+      "default": [],
+      "description": "Apps",
+      "items": {
+        "$id": "#root/apps/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "info",
+          "hosting"
+        ],
+        "properties": {
+          "info": {
+            "$id": "#root/apps/items/info",
+            "title": "Info",
+            "type": "object",
+            "description": "Informations of the app",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "name",
+              "description",
+              "data"
+            ],
+            "properties": {
+              "code": {
+                "$id": "#root/apps/items/info/code",
+                "title": "Code",
+                "type": "string",
+                "default": "",
+                "description": "Code of the app",
+                "examples": [
+                  "CODENAME"
+                ],
+                "pattern": "^.*$"
+              },
+              "name": {
+                "$id": "#root/apps/items/info/name",
+                "title": "Name",
+                "type": "string",
+                "default": "",
+                "description": "Name of the app",
+                "examples": [
+                  "APPNAME"
+                ],
+                "pattern": "^.*$"
+              },
+              "description": {
+                "$id": "#root/apps/items/info/description",
+                "title": "Description",
+                "type": "string",
+                "default": "",
+                "description": "Description of the app",
+                "examples": [
+                  "App that process all the billings"
+                ],
+                "pattern": "^.*$"
+              },
+              "critical": {
+                "$id": "#root/apps/items/info/critical",
+                "title": "Critical",
+                "type": "boolean",
+                "default": false,
+                "description": "Is the app critical ?"
+              },
+              "internal": {
+                "$id": "#root/apps/items/info/internal",
+                "title": "Internal",
+                "type": "boolean",
+                "description": "Is the app internal ?",
+                "default": false
+              },
+              "data": {
+                "$id": "#root/apps/items/info/data",
+                "title": "Data",
+                "type": "array",
+                "additionalProperties": false,
+                "description": "Data used by the app",
+                "default": [],
+                "items": {
+                  "$id": "#root/apps/items/info/data/items",
+                  "title": "Items",
+                  "type": "object",
+                  "required": [
+                    "code"
+                  ],
+                  "properties": {
+                    "code": {
+                      "$id": "#root/apps/items/info/data/items/code",
+                      "title": "Code",
+                      "type": "string",
+                      "description": "Code of the data",
+                      "additionalProperties": false,
+                      "default": "",
+                      "examples": [
+                        "contrat"
+                      ],
+                      "pattern": "^.*$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "hosting": {
+            "$id": "#root/apps/items/hosting",
+            "title": "Hosting",
+            "type": "object",
+            "description": "Hosting informations",
+            "additionalProperties": false,
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "$id": "#root/apps/items/hosting/code",
+                "title": "Code",
+                "type": "string",
+                "default": "",
+                "description": "Code of the hosting",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^.*$"
+              },
+              "container": {
+                "$id": "#root/apps/items/hosting/container",
+                "title": "Container",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "hosting": {
+      "$id": "#root/hosting",
+      "title": "Hosting",
+      "type": "array",
+      "additionalProperties": false,
+      "description": "Hosting",
+      "default": [],
+      "items": {
+        "$id": "#root/hosting/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "code",
+          "name",
+          "type"
+        ],
+        "properties": {
+          "code": {
+            "$id": "#root/hosting/items/code",
+            "title": "Code",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "Azure"
+            ],
+            "description": "Code of the hosting",
+            "pattern": "^.*$"
+          },
+          "name": {
+            "$id": "#root/hosting/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "Azure"
+            ],
+            "pattern": "^.*$"
+          },
+          "type": {
+            "$id": "#root/hosting/items/type",
+            "title": "Type",
+            "enum": [
+              "cloud",
+              "onpremise"
+            ],
+            "default": "onpremise"
+          },
+          "provider": {
+            "$id": "#root/hosting/items/provider",
+            "title": "Provider",
+            "enum": [
+              "azure",
+              "gcp",
+              "aws",
+              "ovh"
+            ]
+          }
+        }
+      }
+    },
+    "flux": {
+      "$id": "#root/flux",
+      "title": "Flux",
+      "type": "array",
+      "additionalProperties": false,
+      "default": [],
+      "items": {
+        "$id": "#root/flux/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "source",
+          "destination",
+          "name",
+          "type",
+          "technology",
+          "orientation"
+        ],
+        "properties": {
+          "source": {
+            "$id": "#root/flux/items/source",
+            "title": "Source",
+            "type": "string",
+            "default": "",
+            "description": "Application code in source of the flux",
+            "examples": [
+              "APP_SOURCE_CODE"
+            ],
+            "pattern": "^.*$"
+          },
+          "destination": {
+            "$id": "#root/flux/items/destination",
+            "title": "Destination",
+            "type": "string",
+            "description": "Application code in destination of the flux",
+            "default": "",
+            "examples": [
+              "APP_DESTINATION_CODE"
+            ],
+            "pattern": "^.*$"
+          },
+          "name": {
+            "$id": "#root/flux/items/name",
+            "title": "Name",
+            "type": "string",
+            "description": "Name of the flux",
+            "default": "",
+            "examples": [
+              "Flux contrat"
+            ],
+            "pattern": "^.*$"
+          },
+          "type": {
+            "$id": "#root/flux/items/type",
+            "title": "Type",
+            "enum": [
+              "Synchrone",
+              "Asynchrone"
+            ]
+          },
+          "technology": {
+            "$id": "#root/flux/items/technology",
+            "title": "Technology",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "ws"
+            ],
+            "pattern": "^.*$"
+          },
+          "orientation": {
+            "$id": "#root/flux/items/orientation",
+            "title": "Orientation",
+            "enum": [
+              "uni",
+              "both"
+            ]
+          }
+        }
+      }
+    },
+    "services": {
+      "$id": "#root/services",
+      "title": "Services",
+      "type": "array",
+      "additionalProperties": false,
+      "default": [],
+      "items": {
+        "$id": "#root/services/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "code",
+          "name",
+          "description"
+        ],
+        "properties": {
+          "code": {
+            "$id": "#root/services/items/code",
+            "title": "Code",
+            "type": "string",
+            "description": "Code of the service",
+            "default": "",
+            "examples": [
+              "actuariat"
+            ],
+            "pattern": "^.*$"
+          },
+          "name": {
+            "$id": "#root/services/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the service",
+            "examples": [
+              "Actuariat"
+            ],
+            "pattern": "^.*$"
+          },
+          "description": {
+            "$id": "#root/services/items/description",
+            "title": "Description",
+            "type": "string",
+            "default": "",
+            "description": "Description of the service",
+            "examples": [
+              "Service des actuaires"
+            ],
+            "pattern": "^.*$"
+          }
+        }
+      }
+    },
+    "process": {
+      "$id": "#root/process",
+      "title": "Process",
+      "type": "array",
+      "additionalProperties": false,
+      "default": [],
+      "items": {
+        "$id": "#root/process/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "steps"
+        ],
+        "properties": {
+          "name": {
+            "$id": "#root/process/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "description": "Name of the process",
+            "examples": [
+              "Quittancement"
+            ],
+            "pattern": "^.*$"
+          },
+          "description": {
+            "$id": "#root/process/items/description",
+            "title": "Description",
+            "type": "string",
+            "description": "Description of the process",
+            "default": "",
+            "examples": [
+              "Opération de quittancement"
+            ],
+            "pattern": "^.*$"
+          },
+          "steps": {
+            "$id": "#root/process/items/steps",
+            "title": "Steps",
+            "type": "array",
+            "description": "Steps of the process",
+            "additionalProperties": false,
+            "default": [],
+            "items": {
+              "$id": "#root/process/items/steps/items",
+              "title": "Items",
+              "type": "object",
+              "required": [
+                "order",
+                "name",
+                "apps",
+                "services"
+              ],
+              "properties": {
+                "order": {
+                  "$id": "#root/process/items/steps/items/order",
+                  "title": "Order",
+                  "type": "number",
+                  "description": "Order of the step",
+                  "examples": [
+                    1, 2
+                  ]
+                },
+                "name": {
+                  "$id": "#root/process/items/steps/items/name",
+                  "title": "Name",
+                  "type": "string",
+                  "default": "",
+                  "description": "Name of the step",
+                  "examples": [
+                    "Définition des OTs"
+                  ],
+                  "pattern": "^.*$"
+                },
+                "apps": {
+                  "$id": "#root/process/items/steps/apps",
+                  "title": "Apps",
+                  "type": "array",
+                  "description": "Apps impacted by the step",
+                  "additionalProperties": false,
+                  "default": [],
+                  "items": {
+                    "$id": "#root/process/items/steps/apps/items",
+                    "title": "Items",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "code"
+                    ],
+                    "properties": {
+                      "code": {
+                        "$id": "#root/process/items/steps/apps/items/code",
+                        "title": "Code",
+                        "type": "string",
+                        "description": "Code of the app",
+                        "default": "",
+                        "examples": [
+                          "APP_CODE"
+                        ],
+                        "pattern": "^.*$"
+                      }
+                    }
+                  }
+                },
+                "services": {
+                  "$id": "#root/process/items/steps/services",
+                  "title": "Apps",
+                  "type": "array",
+                  "description": "Services that do the step",
+                  "additionalProperties": false,
+                  "default": [],
+                  "items": {
+                    "$id": "#root/process/items/steps/apps/services",
+                    "title": "Items",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "code"
+                    ],
+                    "properties": {
+                      "code": {
+                        "$id": "#root/process/items/steps/steps/items/code",
+                        "title": "Code",
+                        "type": "string",
+                        "description": "Code of the service",
+                        "default": "",
+                        "examples": [
+                          "APP_CODE"
+                        ],
+                        "pattern": "^.*$"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
